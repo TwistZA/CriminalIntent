@@ -14,8 +14,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 
-import java.util.Calendar;
-
 /**
  * Created by Avinash.Ganga on 08/03/17.
  */

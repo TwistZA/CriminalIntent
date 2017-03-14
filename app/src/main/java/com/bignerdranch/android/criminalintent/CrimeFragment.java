@@ -36,9 +36,6 @@ public class CrimeFragment extends Fragment {
         CrimeFragment fragment = new CrimeFragment();
         fragment.setArguments(args);
         return fragment;
-
-
-
     }
 
     @Override

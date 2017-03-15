@@ -34,8 +34,8 @@ public class CrimeListFragment extends Fragment {
     }
 
     @Override
-    public void onPause() {
-        super.onPause();
+    public void onResume() {
+        super.onResume();
         updateUI();
     }
 

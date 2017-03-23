@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 
 import java.util.List;
 import java.util.UUID;
@@ -19,6 +20,8 @@ import java.util.UUID;
 public class CrimePagerActivity extends FragmentActivity {
     private static final String EXTRA_CRIME_ID =
             "com.bignerdranch.android.criminalintent.crime_id";
+
+    public static final String TAG = "CrimePagerActivity";
 
     private ViewPager mViewPager;
     private List<Crime> mCrimes;
@@ -34,6 +37,8 @@ public class CrimePagerActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crime_pager);
 
+        Log.d(TAG,"onCreate");
+
         UUID crimeId = (UUID) getIntent()
                 .getSerializableExtra(EXTRA_CRIME_ID);
 
@@ -45,6 +50,7 @@ public class CrimePagerActivity extends FragmentActivity {
             @Override
             public Fragment getItem(int position) {
                 Crime crime = mCrimes.get(position);
+                Log.d(TAG,"onCreate - position = "+position);
                 return CrimeFragment.newInstance(crime.getId());
             }
             @Override
@@ -52,6 +58,15 @@ public class CrimePagerActivity extends FragmentActivity {
                 return mCrimes.size();
             }
         });
+
+        for (int i = 0; i < mCrimes.size(); i++) {
+            if (mCrimes.get(i).getId().equals(crimeId)) {
+                mViewPager.setCurrentItem(i);
+                break;
+            }
+        }
+
+
     }
 
 }

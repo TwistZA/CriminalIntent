@@ -3,6 +3,7 @@ package com.bignerdranch.android.criminalintent;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.format.DateFormat;
@@ -27,6 +28,7 @@ public class CrimeFragment extends Fragment {
     private Button mDateButton;
     private final static String TAG = "CrimeFragment";
     private static final String ARG_CRIME_ID = "crime_id";
+    private static final String DIALOG_DATE = "DialogDate";
 
 
     public static CrimeFragment newInstance(UUID crimeId){
@@ -74,7 +76,14 @@ public class CrimeFragment extends Fragment {
         mDateButton = (Button) v.findViewById(R.id.crime_date);
         String sDate = (String) DateFormat.format("EEEE, d MMMM yyyy",mCrime.getDate());
         mDateButton.setText(sDate);
-        mDateButton.setEnabled(false);
+        mDateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager manager = getFragmentManager();
+                DatePickerFragment dialog = new DatePickerFragment();
+                dialog.show(manager, DIALOG_DATE);
+            }
+        });
 
 
 

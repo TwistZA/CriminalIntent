@@ -123,4 +123,6 @@ public class CrimeFragment extends Fragment {
             updateDate();
         }
     }
+
+    /* Challenge Chapter 12*/
 }

@@ -29,10 +29,15 @@ public class CrimeFragment extends Fragment {
     private EditText mTitle_Field;
     private CheckBox mSolvedCheckBox;
     private Button mDateButton;
+    private Button mTimeButton;
+
     private final static String TAG = "CrimeFragment";
     private static final String ARG_CRIME_ID = "crime_id";
     private static final String DIALOG_DATE = "DialogDate";
     private static final int REQUEST_DATE = 0;
+
+    private static final String DIALOG_TIME = "DialogTime";
+    private static final int REQUEST_TIME = 0;
 
 
     public static CrimeFragment newInstance(UUID crimeId){
@@ -79,8 +84,7 @@ public class CrimeFragment extends Fragment {
 
         mDateButton = (Button) v.findViewById(R.id.crime_date);
         updateDate();
-        //String sDate = (String) DateFormat.format("EEEE, d MMMM yyyy",mCrime.getDate());
-        //mDateButton.setText(sDate);
+
         mDateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,6 +93,20 @@ public class CrimeFragment extends Fragment {
                         .newInstance(mCrime.getDate());
                 dialog.setTargetFragment(CrimeFragment.this, REQUEST_DATE);
                 dialog.show(manager, DIALOG_DATE);
+            }
+        });
+
+        mTimeButton = (Button) v.findViewById(R.id.crime_time);
+        updateTime();
+
+        mTimeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager manager = getFragmentManager();
+                TimePickerFragment dialog = TimePickerFragment
+                        .newInstance(mCrime.getDate());
+                dialog.setTargetFragment(CrimeFragment.this, REQUEST_TIME);
+                dialog.show(manager, DIALOG_TIME);
             }
         });
 
@@ -107,7 +125,17 @@ public class CrimeFragment extends Fragment {
     }
 
     private void updateDate() {
-        mDateButton.setText(mCrime.getDate().toString());
+        //mDateButton.setText(mCrime.getDate().toString());
+
+        String sDate = (String) DateFormat.format("EEEE, d MMMM yyyy",mCrime.getDate());
+        mDateButton.setText(sDate);
+    }
+
+    private void updateTime() {
+        //mTimeButton.setText(mCrime.getDate().toString());
+
+        String sTime = (String) DateFormat.format("HH:mm",mCrime.getDate());
+        mTimeButton.setText(sTime);
     }
 
 
@@ -122,7 +150,14 @@ public class CrimeFragment extends Fragment {
             mCrime.setDate(date);
             updateDate();
         }
+
+        if (requestCode == REQUEST_TIME) {
+            Date time = (Date) data
+                    .getSerializableExtra(TimePickerFragment.EXTRA_TIME);
+            mCrime.setDate(time);
+            updateTime();
+        }
     }
 
-    /* Challenge Chapter 12*/
+
 }

@@ -39,6 +39,8 @@ public class CrimeFragment extends Fragment {
     private static final String DIALOG_TIME = "DialogTime";
     private static final int REQUEST_TIME = 1;
 
+    private static final int REQUEST_DATE_ACTIVITY = 2;
+
 
     public static CrimeFragment newInstance(UUID crimeId){
         Bundle args = new Bundle();
@@ -88,11 +90,16 @@ public class CrimeFragment extends Fragment {
         mDateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager manager = getFragmentManager();
+                /*FragmentManager manager = getFragmentManager();
                 DatePickerFragment dialog = DatePickerFragment
                         .newInstance(mCrime.getDate());
                 dialog.setTargetFragment(CrimeFragment.this, REQUEST_DATE);
-                dialog.show(manager, DIALOG_DATE);
+                dialog.show(manager, DIALOG_DATE);*/
+
+                Intent i = DatePickerActivity.newIntent(getActivity(),mCrime.getDate());
+                startActivityForResult(i,REQUEST_DATE_ACTIVITY);
+
+
             }
         });
 

@@ -37,7 +37,7 @@ public class CrimeFragment extends Fragment {
     private static final int REQUEST_DATE = 0;
 
     private static final String DIALOG_TIME = "DialogTime";
-    private static final int REQUEST_TIME = 0;
+    private static final int REQUEST_TIME = 1;
 
 
     public static CrimeFragment newInstance(UUID crimeId){
@@ -134,7 +134,7 @@ public class CrimeFragment extends Fragment {
     private void updateTime() {
         //mTimeButton.setText(mCrime.getDate().toString());
 
-        String sTime = (String) DateFormat.format("HH:mm",mCrime.getDate());
+        String sTime = (String) DateFormat.format("h:mm a",mCrime.getDate());
         mTimeButton.setText(sTime);
     }
 

@@ -39,9 +39,6 @@ public class CrimeFragment extends Fragment {
     private static final String DIALOG_TIME = "DialogTime";
     private static final int REQUEST_TIME = 1;
 
-    private static final int REQUEST_DATE_ACTIVITY = 2;
-
-
     public static CrimeFragment newInstance(UUID crimeId){
         Bundle args = new Bundle();
         args.putSerializable(ARG_CRIME_ID, crimeId);
@@ -97,7 +94,7 @@ public class CrimeFragment extends Fragment {
                 dialog.show(manager, DIALOG_DATE);*/
 
                 Intent i = DatePickerActivity.newIntent(getActivity(),mCrime.getDate());
-                startActivityForResult(i,REQUEST_DATE_ACTIVITY);
+                startActivityForResult(i,REQUEST_DATE);
 
 
             }

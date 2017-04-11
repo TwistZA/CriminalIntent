@@ -22,7 +22,7 @@ import java.util.List;
 /**
  * Created by Avinash.Ganga on 10/03/17.
  */
-
+/* Challenges */
 public class CrimeListFragment extends Fragment {
     private RecyclerView mCrimeRecyclerView;
     private CrimeAdapter mAdapter;

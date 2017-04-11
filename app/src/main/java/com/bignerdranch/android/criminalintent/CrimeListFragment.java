@@ -61,7 +61,8 @@ public class CrimeListFragment extends Fragment {
             mAdapter = new CrimeAdapter(crimes);
             mCrimeRecyclerView.setAdapter(mAdapter);
         } else {
-            mAdapter.notifyItemChanged(mCurrentPosition);
+            mAdapter.notifyDataSetChanged();
+            //mAdapter.notifyItemChanged(mCurrentPosition);
         }
 
         updateSubtitle();
@@ -90,9 +91,6 @@ public class CrimeListFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-
         setHasOptionsMenu(true);
     }
 

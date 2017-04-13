@@ -1,7 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-              android:id="@+id/crime_recycler_view"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                xmlns:tools="http://schemas.android.com/tools">
 
-</android.support.v7.widget.RecyclerView>
+
+
+                <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+                              android:id="@+id/crime_recycler_view"
+                              android:layout_width="match_parent"
+                              android:layout_height="match_parent">
+
+                </android.support.v7.widget.RecyclerView>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="There are no crimes. Create one now..."
+                        android:layout_marginTop="200dp"
+                        android:padding="10dp"
+                        android:id="@+id/empty_text_textview"
+                        android:layout_gravity="center_horizontal"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/empty_list_create_new_crime"
+                        android:text="Create new"
+                        android:padding="10dp"
+                        android:layout_gravity="center_horizontal"
+                        />
+
+                </LinearLayout>
+
+
+</RelativeLayout>

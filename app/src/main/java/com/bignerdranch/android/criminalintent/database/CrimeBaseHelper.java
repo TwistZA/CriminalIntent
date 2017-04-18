@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.bignerdranch.android.criminalintent.database.CrimeDbSchema.CrimeTable;
 
+
 /**
  * Created by Avinash.Ganga on 13/04/17.
  */
@@ -29,7 +30,13 @@ public class CrimeBaseHelper extends SQLiteOpenHelper {
                 ")"
         );
     }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }
+
+
+
+
+
 }
